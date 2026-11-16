@@ -4,6 +4,17 @@
   --coral: #C8362E;
   --cream: #F7F5F2;
   --grey: #5B6475;
+  --page: #F7F5F2;
+  --surface: white;
+  --text: #1F2A44;
+}
+
+/* Dark mode: the same names, new colours */
+body.dark {
+  --page: #131A2B;
+  --surface: #1F2A44;
+  --text: #F7F5F2;
+  --grey: #B5BDCB;
 }
 
 * {
@@ -13,8 +24,8 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  color: var(--navy);
-  background: var(--cream);
+  color: var(--text);
+  background: var(--page);
   line-height: 1.6;
 }
 
@@ -29,13 +40,14 @@ h1, h2, h3, .logo {
   justify-content: space-between;
   align-items: center;
   padding: 20px 8%;
-  background: white;
+  background: var(--surface);
 }
 
 .logo {
+  margin-right: auto;
   font-size: 28px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -45,9 +57,26 @@ h1, h2, h3, .logo {
 
 nav a {
   margin-left: 28px;
-  color: var(--navy);
+  color: var(--text);
   text-decoration: none;
   font-weight: 600;
+}
+
+/* Header buttons (Session 5) */
+.header-button {
+  margin-left: 24px;
+  padding: 8px 16px;
+  border: 2px solid;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-button {
+  display: none;
 }
 
 /* Sections */
@@ -118,7 +147,7 @@ h2 {
 
 /* About */
 .about {
-  background: white;
+  background: var(--surface);
 }
 
 .about p {
@@ -136,7 +165,7 @@ h2 {
 .skills li {
   padding: 8px 18px;
   border-radius: 20px;
-  background: var(--cream);
+  background: var(--page);
   font-weight: 600;
 }
 
@@ -148,7 +177,7 @@ h2 {
 }
 
 .card {
-  background: white;
+  background: var(--surface);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(31, 42, 68, 0.08);
@@ -199,6 +228,22 @@ h2 {
   align-self: flex-start;
 }
 
+/* Form messages (Session 5) */
+.contact-form .error {
+  margin: 4px 0 0;
+  color: #FFB4AE;
+  font-size: 14px;
+}
+
+.thanks {
+  margin: 20px 0 0;
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: white;
+  color: var(--navy);
+  font-weight: 600;
+}
+
 /* Footer */
 .site-footer {
   padding: 24px 8%;
@@ -209,12 +254,29 @@ h2 {
 /* Phones */
 @media (max-width: 700px) {
   .site-header {
-    flex-direction: column;
-    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    order: 1;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  nav.open {
+    display: block;
   }
 
   nav a {
-    margin: 0 12px;
+    display: block;
+    margin: 0;
+    padding: 12px 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
   }
 
   .hero {
@@ -237,4 +299,15 @@ h2 {
   .cards {
     grid-template-columns: 1fr;
   }
+}
+
+/* Dark mode: coral text needs a brighter coral on a dark page */
+body.dark .eyebrow,
+body.dark .btn-outline,
+body.dark .logo span {
+  color: #F25C54;
+}
+
+body.dark .btn-outline {
+  border-color: #F25C54;
 }
