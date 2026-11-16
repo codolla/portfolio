@@ -8,15 +8,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <a href="#" class="logo">Ama<span>.</span></a>
-    <nav>
+    <nav id="site-nav">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button type="button" id="theme-button"
+      class="header-button">Dark mode</button>
+    <button type="button" id="menu-button"
+      class="header-button menu-button">Menu</button>
   </header>
 
   <main>
@@ -45,7 +50,6 @@
         <li>CSS</li>
         <li>JavaScript</li>
         <li>Git</li>
-        <li>Flexbox</li>
       </ul>
     </section>
 
@@ -72,20 +76,25 @@
 
     <section id="contact" class="contact">
       <h2>Let's work together</h2>
-      <form class="contact-form">
+      <form class="contact-form" novalidate>
         <label for="name">Your name</label>
         <input type="text" id="name" name="name" required>
+        <p class="error" id="name-error"></p>
         <label for="email">Your email</label>
         <input type="email" id="email" name="email" required>
+        <p class="error" id="email-error"></p>
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="4" required></textarea>
+        <p class="error" id="message-error"></p>
         <button type="submit" class="btn">Send message</button>
+        <p class="thanks" id="thanks" hidden></p>
       </form>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Ama Boateng. Built at Codolla Skills Lab.</p>
+    <p>&copy; <span id="year">2026</span> Ama Boateng.
+      Built at Codolla Skills Lab.</p>
   </footer>
 </body>
 </html>
